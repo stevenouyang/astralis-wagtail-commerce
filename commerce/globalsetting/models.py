@@ -68,8 +68,22 @@ class SiteContact(BaseSiteSetting):
 class GeneralImage(BaseSiteSetting):
     login_banner            = models.ImageField(blank=True, upload_to="generalimages")
     register_banner         = models.ImageField(blank=True, upload_to="generalimages")
-    
+
     # utility: image processing
+    login_banner_495x580    = ImageSpecField(
+                            source="login_banner",
+                            processors=[ResizeToFill(495, 580)],
+                            format="WebP",
+                            options={"quality": 80},
+                            )
+    register_banner_495x580 = ImageSpecField(
+                            source="register_banner",
+                            processors=[ResizeToFill(495, 580)],
+                            format="WebP",
+                            options={"quality": 80},
+                            )
+    
+    
     
     panels = [
         FieldPanel("login_banner"),
