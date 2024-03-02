@@ -5,9 +5,9 @@ from .models import *
 
 class SliderContentAdmin(SnippetViewSet):
     model = SliderContent
-    menu_label = "SpecTable Admin"
+    menu_label = "Slider Content Admin"
     icon = "image"
-    list_display = ["title", "created_date"]
+    list_display = ["title1", "title2", "created_date"]
     
 class ContentSettingAdmin(SnippetViewSetGroup):
     menu_icon = "image"

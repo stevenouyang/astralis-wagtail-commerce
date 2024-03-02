@@ -55,19 +55,21 @@ class SoftDelete(models.Model):
 
 # model: category
 class Category(SoftDelete):
-    title       = models.CharField(max_length=100, unique=True)
-    slug        = AutoSlugField(populate_from='title')
-    image       = models.ImageField(upload_to=category_image_upload_path, blank=True, null=True)
-    image_300x300 = ImageSpecField(
+    title           = models.CharField(max_length=100, unique=True)
+    slug            = AutoSlugField(populate_from='title')
+    image           = models.ImageField(upload_to="category", default=CATEGORY_DEFALT_IMAGE)
+    cover_image     = models.ImageField(upload_to="category_cover", default=VENDOR_COVER_DEFAULT_IMAGE)
+    image_300x300   = ImageSpecField(
         source="image",
         processors=[ResizeToFill(300, 300)],
-        format="WebP",
+        format="png",
         options={"quality": 80},
     )
     
     panels = [
         FieldPanel("title"),
         FieldPanel("image"),
+        FieldPanel("cover_image"),
     ]
     
     class Meta:
@@ -170,6 +172,7 @@ class Product(ClusterableModel):
     
     panels = [
         FieldPanel("user"),
+        FieldPanel("vendor"),
         FieldPanel("title"),
         FieldPanel("category"),
         FieldPanel("tag"),

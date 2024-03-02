@@ -91,6 +91,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "globalsetting.context_processor.globalmulti",
+                "store.context_processors.default",
             ],
         },
     },
