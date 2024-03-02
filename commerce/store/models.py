@@ -159,12 +159,9 @@ class Product(ClusterableModel):
     old_price           = models.DecimalField(max_digits=15, decimal_places=2, default="69069.00")
     product_status      = models.CharField(choices=STATUS, max_length=100, blank=True, null=True, default="IN_REVIEW")
     status              = models.BooleanField(default=True)
-    stock               = models.PositiveIntegerField(default=1)
-    life                = models.CharField(max_length=40, default="10 Days After Shipped")
-    mfd                 = models.DateTimeField(blank=True, null=True)
+    stock               = models.PositiveIntegerField(default=100)
     in_stock            = models.BooleanField(default=True)
     is_featured         = models.BooleanField(default=True)
-    is_digital          = models.BooleanField(default=True)
     sku                 = models.CharField(max_length=20, blank=True, null=True)
     date_created        = models.DateTimeField(auto_now_add=True)
     date_updated        = models.DateTimeField(null=True, blank=True)
@@ -183,11 +180,8 @@ class Product(ClusterableModel):
         FieldPanel("product_status"),
         FieldPanel("status"),
         FieldPanel("stock"),
-        FieldPanel("life"),
-        FieldPanel("mfd"),
         FieldPanel("in_stock"),
         FieldPanel("is_featured"),
-        FieldPanel("is_digital"),
         FieldPanel("sku"),
         FieldPanel("is_deleted"),
         FieldPanel("deleted_date"),

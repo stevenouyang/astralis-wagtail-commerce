@@ -19,13 +19,13 @@ class CategoryAdmin(SnippetViewSet):
 class VendorAdmin(SnippetViewSet):
     model = Vendor
     menu_label = "Vendor Admin"
-    icon = "list-ul"
+    icon = "group"
     list_display = ["title"]
     
 class ProductAdmin(SnippetViewSet):
     model = Product
     menu_label = "Product Admin"
-    icon = "list-ul"
+    icon = "pick"
     list_display = ["title"]
     
 class StoreSettingAdmin(SnippetViewSetGroup):
@@ -33,7 +33,7 @@ class StoreSettingAdmin(SnippetViewSetGroup):
     menu_label = "Store"
     menu_name = "Content List"
     items = (
-        CategoryAdmin, VendorAdmin, ProductAdmin
+        ProductAdmin, CategoryAdmin, VendorAdmin,
     )
 
 

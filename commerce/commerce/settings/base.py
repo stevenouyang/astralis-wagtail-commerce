@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "userauth",
     "globalsetting",
     "newsletter",
+    "content",
 ]
 
 MIDDLEWARE = [
